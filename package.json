@@ -1,0 +1,50 @@
+{
+  "name": "mongo-next-sentinel",
+  "version": "1.0.0",
+  "description": "High-performance MongoDB connection pool auditor and connection leak detector for Next.js App Router, Server Actions, and Serverless runtimes.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node",
+    "test": "bun test"
+  },
+  "keywords": [
+    "mongodb",
+    "nextjs",
+    "app-router",
+    "server-actions",
+    "connection-pool",
+    "leak-detector",
+    "serverless",
+    "atlas",
+    "performance"
+  ],
+  "author": "Daksh Rawat (https://github.com/Kukzze)",
+  "license": "MIT",
+  "peerDependencies": {
+    "mongodb": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "mongodb": "^7.7.0",
+    "typescript": "^7.0.2"
+  }
+}

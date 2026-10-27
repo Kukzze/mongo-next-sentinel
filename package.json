@@ -23,8 +23,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target node",
-    "test": "bun test"
+    "build": "tsc && bun build ./src/index.ts --outdir ./dist --target node --external mongodb",
+    "test": "bun test",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": [
     "mongodb",

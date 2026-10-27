@@ -121,6 +121,10 @@ export class MongoSentinel {
     return { ...this.metrics };
   }
 
+  public getConfig(): Readonly<Required<SentinelConfig>> {
+    return { ...this.config };
+  }
+
   public getActiveCheckoutsCount(): number {
     return this.checkouts.size;
   }

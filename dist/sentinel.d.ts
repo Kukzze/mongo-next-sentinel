@@ -8,6 +8,7 @@ export declare class MongoSentinel {
     constructor(client: MongoClient, config?: SentinelConfig);
     private attachListeners;
     getMetrics(): Readonly<PoolMetrics>;
+    getConfig(): Readonly<Required<SentinelConfig>>;
     getActiveCheckoutsCount(): number;
     destroy(): void;
     private notifyUpdate;

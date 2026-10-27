@@ -94,6 +94,9 @@ class MongoSentinel {
   getMetrics() {
     return { ...this.metrics };
   }
+  getConfig() {
+    return { ...this.config };
+  }
   getActiveCheckoutsCount() {
     return this.checkouts.size;
   }

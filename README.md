@@ -1,6 +1,6 @@
 # mongo-next-sentinel 🛡️🍃
 
-[![npm version](https://img.shields.io/badge/npm-v1.0.0-cb3837.svg)](https://npmjs.com/package/mongo-next-sentinel)
+[![npm version](https://img.shields.io/badge/npm-v1.1.0-cb3837.svg)](https://npmjs.com/package/mongo-next-sentinel)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict%205.6+-3178C6.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![MongoDB For Startups](https://img.shields.io/badge/MongoDB%20for%20Startups-Accepted%20Cohort-00ED64.svg?logo=mongodb&logoColor=white)](https://www.mongodb.com/startups)
@@ -129,6 +129,43 @@ Example response:
     "checkoutWaitCount": 12
   }
 }
+```
+
+---
+
+## 📈 Prometheus Exporter (v1.1.0)
+
+Expose standard Prometheus metrics for scraping by Grafana or Datadog:
+
+```typescript
+import { NextResponse } from 'next/server';
+import { sentinel } from '@/lib/mongodb';
+
+export async function GET() {
+  const metrics = sentinel?.toPrometheusMetrics();
+  return new Response(metrics, {
+    headers: { 'Content-Type': 'text/plain; version=0.0.4' },
+  });
+}
+```
+
+---
+
+## ⚡ Self-Healing Circuit Breaker (v1.1.0)
+
+Prevent cascading connection pool failures during database outages with automatic state transitions:
+
+```typescript
+import { createMongoCircuitBreaker } from 'mongo-next-sentinel';
+
+const breaker = createMongoCircuitBreaker({
+  failureThreshold: 5, // Open circuit after 5 consecutive failures
+  cooldownPeriodMs: 15000, // Wait 15s before attempting recovery
+});
+
+const user = await breaker.execute(async () => {
+  return await db.collection('users').findOne({ id });
+});
 ```
 
 ---

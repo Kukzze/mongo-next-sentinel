@@ -1,0 +1,1 @@
+{"version":3,"file":"snapshot.js","sourceRoot":"","sources":["../src/snapshot.ts"],"names":[],"mappings":";;;AASA,kCAAyC,OAAoB,EAAE,WAAmB;IAChF,OAAO;QACL,SAAS,EAAE,IAAI,IAAI,EAAE,CAAC,WAAW,EAAE;QACnC,OAAO,EAAE,OAAO;QAChB,OAAO,EAAE,EAAE,GAAG,OAAO,EAAE;QACvB,oBAAoB,EAAE,WAAW;KAClC,CAAC;AACJ,CAAC"}
